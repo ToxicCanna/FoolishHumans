@@ -6,7 +6,13 @@ public class TurretObject : ScriptableObject
 {
     public float atkSpd;
     public float atkDmg;
-    public float atk;
+    public float range;
+    public int level;
+    public int cost;
+    public void AtkEffect()
+    {
+
+    }
 
 
 }
