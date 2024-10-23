@@ -11,7 +11,7 @@ public class PlayerInputController : MonoBehaviour
         if (playerI != null)
         {
             playerI.InGame.Movement.performed += (val) => PlayerController.Instance.OnMove(val.ReadValue<Vector2>());
-            
+
         }
         playerI.Enable();
     }
