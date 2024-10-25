@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class EnemyBase : MonoBehaviour
 {
     [SerializeField] private float healthPoints;
-
+    [SerializeField] private float attackPower;
     protected virtual void TakeDamage()
     { }
 
@@ -16,5 +16,8 @@ public abstract class EnemyBase : MonoBehaviour
     { }
 
     protected virtual void Attack()
+    { }
+
+    protected virtual void GetStuned()
     { }
 }
