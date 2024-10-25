@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 3069185891337649057}
   - component: {fileID: 1431319087558439023}
   - component: {fileID: 8910557014374255491}
-  - component: {fileID: 8798183922348504697}
+  - component: {fileID: 5057327725659500482}
   m_Layer: 0
   m_Name: GoblinTower3
   m_TagString: Untagged
@@ -142,7 +142,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8798183922348504697
+--- !u!114 &5057327725659500482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,7 +151,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8033821873774285727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 914101b1c95b85b4ea9cd380adf70667, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cdf2db879a533f4c8c22725a3eaaa33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 55ee8d4067321054aa7d329bff482424, type: 2}
+  defaultData: {fileID: 11400000, guid: 55ee8d4067321054aa7d329bff482424, type: 2}
+  path1: {fileID: 11400000, guid: e9899d968721dd04e834dbcd031ea6a2, type: 2}
+  path2: {fileID: 11400000, guid: 3b12d76cb15dc404b975c45e473f64f2, type: 2}
+  shotPrefab: {fileID: 1379582864326683640, guid: f6fedceee2d2e664cb74300f30a83074, type: 3}
+  atkSpd: 0
+  atkDmg: 0
+  range: 0
+  area: 0
+  chain: 0
+  level: 0
+  cost: 0

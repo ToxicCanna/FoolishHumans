@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7418a5a8d0606f24e8093c18a55fe3a2, type: 3}
-  m_Name: LightningTO
+  m_Name: LightningChainTO
   m_EditorClassIdentifier: 
-  atkSpd: 0.5
+  atkSpd: 1
   atkDmg: 25
   range: 25
   area: 0
-  chain: 3
-  cost: 500
-  level: 1
+  chain: 5
+  cost: 3000
+  level: 3
