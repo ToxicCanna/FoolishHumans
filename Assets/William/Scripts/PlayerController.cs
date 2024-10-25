@@ -30,7 +30,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         previousPosition = currentPosition;
         currentPosition = transform.position;
-        Debug.Log(MovementValue);
+        
         movementVector.x = MovementValue.x;
         movementVector.z = MovementValue.y;
     }
