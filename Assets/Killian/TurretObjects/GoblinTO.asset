@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7418a5a8d0606f24e8093c18a55fe3a2, type: 3}
   m_Name: GoblinTO
   m_EditorClassIdentifier: 
-  atkSpd: 0
+  atkSpd: 0.75
   atkDmg: 10
-  range: 0
-  level: 0
+  range: 15
+  level: 1
   cost: 100
