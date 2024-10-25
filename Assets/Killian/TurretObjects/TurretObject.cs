@@ -7,10 +7,8 @@ public class TurretObject : ScriptableObject
     public float atkSpd;
     public float atkDmg;
     public float range;
-    public int level;
+    public float area;
+    public float chain;
     public int cost;
-    public void AtkEffect()
-    {
-
-    }
+    public int level = 1;
 }
