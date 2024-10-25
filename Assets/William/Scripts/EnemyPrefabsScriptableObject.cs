@@ -6,5 +6,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyPrefabs", menuName = "ScriptableObjects/EnemyPrefabs", order = 1)]
 public class EnemyPrefabsScriptableObject : ScriptableObject
 {
-    [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] public GameObject[] enemyPrefabs;
 }
