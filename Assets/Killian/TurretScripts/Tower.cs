@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -11,13 +12,13 @@ public class Tower : MonoBehaviour
 
     private bool canShoot;
 
-    public float atkSpd;
-    public float atkDmg;
-    public float range;
-    public float area;
-    public float chain;
-    public int level;
-    public int cost;
+    protected float atkSpd;
+    protected float atkDmg;
+    protected float range;
+    protected float area;
+    protected float chain;
+    protected int level;
+    protected int cost;
 
     private void Awake()
     {
@@ -30,12 +31,39 @@ public class Tower : MonoBehaviour
         cost = defaultData.cost;
     }
 
-    private void Shoot()
+    public void Start()
+    {
+        var attackTime = 1 / (atkSpd / 50f);
+        Debug.Log(attackTime);
+    }
+
+    private void Update()
     {
 
     }
 
-    public virtual void Upgrade()
+    IEnumerator ShotCooldown()
+    {
+        // Block any attempt to shoot
+        canShoot = false;
+
+        // Wait for specified number of seconds
+        var attackTime = 1 / (atkSpd / 50f);
+        Debug.Log(attackTime);
+        yield return new WaitForSeconds(0.001f * attackTime);
+
+        // Cooldown is over. Unlock shot
+        canShoot = true;
+    }
+
+    private void Shoot()
+    {
+        //shoot projectiles
+
+        StartCoroutine(ShotCooldown());
+    }
+
+    protected virtual void Upgrade()
     {
 
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoblinTower : Tower
 {
-    public override void Upgrade()
+    protected override void Upgrade()
     {
         level++;
         atkSpd += 0.1f;
