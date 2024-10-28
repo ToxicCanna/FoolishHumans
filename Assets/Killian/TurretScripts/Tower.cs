@@ -19,6 +19,7 @@ public class Tower : MonoBehaviour
     protected int chain;
     protected int level;
     protected int cost;
+    protected int path;
 
     public GameObject upgradePanel;
 
@@ -140,10 +141,12 @@ public class Tower : MonoBehaviour
     public void SetPath1()
     {
         InitializeTower(path1);
+        path = 1;
     }
 
     public void SetPath2()
     {
         InitializeTower(path2);
+        path = 2;
     }
 }
