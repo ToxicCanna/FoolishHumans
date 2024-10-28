@@ -14,7 +14,7 @@ public class SkeleTower : Tower
         }
     }
 
-    protected override void Shoot()
+    protected override void Shoot(Transform target)
     {
         // Instead of shooting a projectile, summon a skeleton
         SummonSkeleton();

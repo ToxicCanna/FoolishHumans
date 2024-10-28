@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 8910557014374255491}
   - component: {fileID: 5057327725659500482}
   m_Layer: 0
-  m_Name: GoblinTower3
+  m_Name: GoblinTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

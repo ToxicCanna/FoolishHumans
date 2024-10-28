@@ -5,10 +5,10 @@ using UnityEngine;
 public class TurretObject : ScriptableObject
 {
   [Range(1,100)] public int atkSpd;
-    public float atkDmg;
+    public int atkDmg;
     public float range;
     public float area;
-    public float chain;
+    public int chain;
     public int cost;
     public int level = 1;
 }

@@ -13,14 +13,19 @@ public class Tower : MonoBehaviour
     private bool canShoot;
 
     protected float atkSpd;
-    protected float atkDmg;
+    protected int atkDmg;
     protected float range;
     protected float area;
-    protected float chain;
+    protected int chain;
     protected int level;
     protected int cost;
 
     public GameObject upgradePanel;
+
+    public float Area
+    {
+        get { return area; }
+    }
 
     private void Awake()
     {
@@ -41,7 +46,7 @@ public class Tower : MonoBehaviour
             Transform target = FindClosestEnemy();
             if (target != null)
             {
-                Shoot();
+                Shoot(target);
             }
         }
     }
@@ -82,16 +87,22 @@ public class Tower : MonoBehaviour
         canShoot = false;
 
         var attackTime = 1 / (atkSpd / 50f);
-        yield return new WaitForSeconds(0.001f * attackTime);
+        yield return new WaitForSeconds(/*0.001f * */attackTime);
 
         canShoot = true;
     }
 
-    protected virtual void Shoot()
+    protected virtual void Shoot(Transform target)
     {
         if (!canShoot) return;
 
         GameObject shot = Instantiate(shotPrefab, transform.position, Quaternion.identity);
+
+        Projectile projectile = shot.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            projectile.Initialize(target, atkDmg);
+        }
 
         StartCoroutine(ShotCooldown());
     }
