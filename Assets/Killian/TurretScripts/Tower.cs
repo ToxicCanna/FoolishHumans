@@ -20,15 +20,12 @@ public class Tower : MonoBehaviour
     protected int level;
     protected int cost;
 
+    public GameObject upgradePanel;
+
     private void Awake()
     {
-        atkSpd = defaultData.atkSpd;
-        atkDmg = defaultData.atkDmg;
-        range = defaultData.range;
-        area = defaultData.area;
-        chain = defaultData.chain;
-        level = defaultData.level;
-        cost = defaultData.cost;
+        InitializeTower(defaultData);
+        canShoot = true;
     }
 
     public void Start()
@@ -39,52 +36,103 @@ public class Tower : MonoBehaviour
 
     private void Update()
     {
-
+        if (canShoot)
+        {
+            Transform target = FindClosestEnemy();
+            if (target != null)
+            {
+                Shoot();
+            }
+        }
+    }
+    private void InitializeTower(TurretObject data)
+    {
+        atkSpd = data.atkSpd;
+        atkDmg = data.atkDmg;
+        range = data.range;
+        area = data.area;
+        chain = data.chain;
+        level = data.level;
+        cost = data.cost;
     }
 
-    IEnumerator ShotCooldown()
+    private Transform FindClosestEnemy()
     {
-        // Block any attempt to shoot
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
+        Transform closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Enemy"))
+            {
+                float distance = Vector3.Distance(transform.position, hitCollider.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestEnemy = hitCollider.transform;
+                }
+            }
+        }
+        return closestEnemy;
+    }
+
+    protected virtual IEnumerator ShotCooldown()
+    {
         canShoot = false;
 
-        // Wait for specified number of seconds
         var attackTime = 1 / (atkSpd / 50f);
-        Debug.Log(attackTime);
         yield return new WaitForSeconds(0.001f * attackTime);
 
-        // Cooldown is over. Unlock shot
         canShoot = true;
     }
 
-    private void Shoot()
+    protected virtual void Shoot()
     {
-        //shoot projectiles
+        if (!canShoot) return;
+
+        GameObject shot = Instantiate(shotPrefab, transform.position, Quaternion.identity);
 
         StartCoroutine(ShotCooldown());
     }
 
     protected virtual void Upgrade()
     {
-
+        level++;
+        if (level >= 3)
+        {
+            ShowUpgradeMenu();
+        }
     }
-    private void MaxUp(TurretObject newPath)
+    protected void ShowUpgradeMenu()
     {
-        atkSpd = newPath.atkSpd;
-        atkDmg = newPath.atkDmg;
-        range = newPath.range;
-        area = newPath.area;
-        chain = newPath.chain;
-        level = newPath.level;
-        cost =  newPath.cost;
+        upgradePanel.SetActive(true);
+    }
+
+    public void OnUpgradePath1Selected()
+    {
+        SetPath1();
+        CloseUpgradeMenu();
+    }
+
+    public void OnUpgradePath2Selected()
+    {
+        SetPath2();
+        CloseUpgradeMenu();
+    }
+
+    protected void CloseUpgradeMenu()
+    {
+        upgradePanel.SetActive(false);
     }
 
     public void SetPath1()
     {
-        MaxUp(path1);
+        InitializeTower(path1);
     }
 
     public void SetPath2()
     {
-        MaxUp(path2);
+        InitializeTower(path2);
     }
 }
