@@ -87,7 +87,7 @@ public class Tower : MonoBehaviour
         canShoot = false;
 
         var attackTime = 1 / (atkSpd / 50f);
-        yield return new WaitForSeconds(/*0.001f * */attackTime);
+        yield return new WaitForSeconds(attackTime);
 
         canShoot = true;
     }

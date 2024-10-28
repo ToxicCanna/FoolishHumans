@@ -27,7 +27,7 @@ public class WebBlob : Projectile
     private void ApplyEffect(Transform target)
     {
         EnemyBase enemy = target.GetComponent<EnemyBase>();
-        if (enemy != null && target.CompareTag("Enemy"))
+        if (target.CompareTag("Enemy") && enemy != null)
         {
             enemy.TakeDamage(damage);
             StartCoroutine(enemy.GetSlowed());
