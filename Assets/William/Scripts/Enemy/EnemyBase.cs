@@ -25,6 +25,9 @@ public class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         healthPoints = healthPoints - damage;
+
+        Debug.Log("health" + healthPoints);
+
         if(healthPoints <= 0)
         {
             Destroy(this.gameObject);
