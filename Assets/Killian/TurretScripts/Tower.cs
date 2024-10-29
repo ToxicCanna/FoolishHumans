@@ -97,7 +97,7 @@ public class Tower : MonoBehaviour
     {
         if (!canShoot) return;
 
-        GameObject shot = Instantiate(shotPrefab, transform.position, Quaternion.identity);
+        GameObject shot = Instantiate(shotPrefab, transform.position + new Vector3(0,(float)5.4,0), Quaternion.Euler(0,0,90));
 
         Projectile projectile = shot.GetComponent<Projectile>();
         if (projectile != null)

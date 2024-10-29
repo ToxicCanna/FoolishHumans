@@ -5,9 +5,9 @@ using UnityEngine;
 public class WebBlob : Projectile
 {
     public float aoeRadius; //set form the origin tower
-
-    private void Start()
+    protected override void Start()
     {
+        lifetime = trackingTime;
         // Get the AoE radius from the parent Tower
         Tower tower = GetComponentInParent<Tower>();
         if (tower != null)
