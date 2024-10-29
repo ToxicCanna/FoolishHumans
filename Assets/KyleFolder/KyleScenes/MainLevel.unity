@@ -22964,6 +22964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrankensteinTower
       objectReference: {fileID: 0}
+    - target: {fileID: 5086164437076363498, guid: 411db318fa420404d94730290dbb46d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5643872309215576748, guid: 411db318fa420404d94730290dbb46d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.43
