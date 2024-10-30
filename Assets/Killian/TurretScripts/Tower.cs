@@ -28,6 +28,11 @@ public class Tower : MonoBehaviour
         get { return area; }
     }
 
+    public int Chain
+    {
+        get { return chain; }
+    }
+
     private void Awake()
     {
         InitializeTower(defaultData);
@@ -111,10 +116,6 @@ public class Tower : MonoBehaviour
     public virtual void Upgrade()
     {
         level++;
-    }
-    protected void ShowUpgradeMenu()
-    {
-        upgradePanel.SetActive(true);
     }
 
     public void OnUpgradePath1Selected()

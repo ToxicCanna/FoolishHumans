@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LightningTO
   m_EditorClassIdentifier: 
   atkSpd: 20
-  atkDmg: 25
+  atkDmg: 1
   range: 20
   area: 3
   chain: 3

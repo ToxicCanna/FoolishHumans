@@ -2,15 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZapTower : Tower
+public class Lightning : Projectile
 {
+    public float area;
+    public int chain;
     public GameObject lightningPrefab;
-    private Vector3 HitLoc;
 
-    /*protected override void Shoot(Transform target)
+    /*protected override void Start()
     {
+        lifetime = trackingTime;
+        // Get the AoE radius from the parent Tower
+        Tower tower = GetComponentInParent<Tower>();
+        if (tower != null)
+        {
+            area = tower.Area; // Inherit area from the tower
+            chain = tower.Chain; // inherit chain from tower
+        }
+    }
+    protected override void OnTriggerEnter(Collider other)
+    {
+        EnemyBase enemy = other.transform.GetComponent<EnemyBase>();
+
+        if (other.transform.CompareTag("Enemy") && enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
         StartCoroutine(ChainLightning(target, chain, new HashSet<EnemyBase>()));
-        StartCoroutine(ShotCooldown());
     }
 
     private IEnumerator ChainLightning(Transform target, int chainsLeft, HashSet<EnemyBase> hitEnemies)
@@ -22,20 +39,18 @@ public class ZapTower : Tower
         if (enemy != null && !hitEnemies.Contains(enemy))
         {
             // Damage the enemy and record it
-            enemy.TakeDamage(atkDmg);
+            enemy.TakeDamage(damage);
             hitEnemies.Add(enemy);
-            Debug.Log($"Dealing {atkDmg} to {target.name}");
+            Debug.Log($"Dealing {damage} to {target.name}");
 
             GameObject lightning = Instantiate(lightningPrefab, target.position, Quaternion.identity);
-
-            HitLoc = target.position;
             Destroy(lightning, .5f);
         }
 
         yield return new WaitForSeconds(0.1f);
 
         // Find the next enemy to chain to
-        Transform nextTarget = FindClosestEnemy(HitLoc, hitEnemies);
+        Transform nextTarget = FindClosestEnemy(target.position, hitEnemies);
         if (nextTarget != null)
         {
             yield return ChainLightning(nextTarget, chainsLeft - 1, hitEnemies); // Call again for the next target
@@ -72,14 +87,4 @@ public class ZapTower : Tower
         }
         return closestEnemy;
     }*/
-
-    public override void Upgrade()
-    {
-        base.Upgrade();
-
-        if (level == 2)
-        {
-
-        }
-    }
 }
