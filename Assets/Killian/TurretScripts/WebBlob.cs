@@ -5,9 +5,9 @@ using UnityEngine;
 public class WebBlob : Projectile
 {
     public float aoeRadius; //set form the origin tower
-
-    private void Start()
+    protected override void Start()
     {
+        lifetime = trackingTime;
         // Get the AoE radius from the parent Tower
         Tower tower = GetComponentInParent<Tower>();
         if (tower != null)
@@ -20,18 +20,7 @@ public class WebBlob : Projectile
     {
         base.OnTriggerEnter(collision);
 
-        ApplyEffect(collision.transform);
         ApplyAoEEffect(collision.transform.position);
-    }
-
-    private void ApplyEffect(Transform target)
-    {
-        EnemyBase enemy = target.GetComponent<EnemyBase>();
-        if (target.CompareTag("Enemy") && enemy != null)
-        {
-            enemy.TakeDamage(damage);
-            StartCoroutine(enemy.GetSlowed());
-        }
     }
 
     private void ApplyAoEEffect(Vector3 position)
@@ -43,8 +32,7 @@ public class WebBlob : Projectile
             EnemyBase enemy = hitCollider.GetComponent<EnemyBase>();
             if (enemy != null && hitCollider.CompareTag("Enemy"))
             {
-                // Apply damage and slow to each enemy in range
-                enemy.TakeDamage(damage);
+                // Apply slow to each enemy in range
                 StartCoroutine(enemy.GetSlowed());
             }
         }
