@@ -3,7 +3,12 @@ guid: 3da2b29af51332541b7f06ca1c74edd2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - defaultData: {fileID: 11400000, guid: 531f73f975da5a048a6231724586496d, type: 2}
+  - path1: {fileID: 11400000, guid: e62a3e7f82941134f99b38d503390332, type: 2}
+  - path2: {fileID: 11400000, guid: d95031c23a98bfb4282bb646a2dad654, type: 2}
+  - shotPrefab: {fileID: 2867356515218099561, guid: 352477bdb451303438df0a7b9fa94902, type: 3}
+  - upgradePanel: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

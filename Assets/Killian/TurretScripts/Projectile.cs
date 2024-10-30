@@ -9,14 +9,14 @@ public class Projectile : MonoBehaviour
     public float trackingTime = 10f;
     public int damage;
 
-    private float lifetime;
+    protected float lifetime;
 
-    private void Start()
+    protected virtual void Start()
     {
         lifetime = trackingTime;
     }
 
-    private void Update()
+    protected void Update()
     {
         if (target != null && lifetime > 0)
         {
@@ -43,7 +43,6 @@ public class Projectile : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
-
         Destroy(gameObject);
     }
 
