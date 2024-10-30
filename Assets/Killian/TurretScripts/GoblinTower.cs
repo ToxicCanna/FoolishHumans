@@ -12,7 +12,7 @@ public class GoblinTower : Tower
         if (level == 2)
         {
             atkSpd += 25;
-            //atkDmg += 2;
+            atkDmg += 2;
         }
     }
 

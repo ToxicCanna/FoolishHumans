@@ -15,7 +15,7 @@ MonoBehaviour:
   atkSpd: 50
   atkDmg: 0
   range: 20
-  area: 2.5
+  area: 3
   chain: 0
   cost: 1200
   level: 3

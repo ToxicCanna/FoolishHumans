@@ -36,7 +36,12 @@ public class EnemyBase : MonoBehaviour
         if (healthPoints <= 0)
         {
             ScoreManager.Instance.AddBlood(blood);
-            Destroy(this.gameObject);
+
+            Renderer renderer = GetComponent<Renderer>();
+            Collider collider = GetComponent<Collider>();
+            renderer.enabled = false;
+            collider.enabled = false;
+            Destroy(this.gameObject, 1); //gotta keep enemy alive for chain to work i guess, disable render and collider, then destroy after delay
         }
     }
 

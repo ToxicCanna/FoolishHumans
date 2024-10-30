@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7418a5a8d0606f24e8093c18a55fe3a2, type: 3}
   m_Name: SkeleSuperTO
   m_EditorClassIdentifier: 
-  atkSpd: 10
-  atkDmg: 10
-  range: 25
+  atkSpd: 20
+  atkDmg: 20
+  range: 30
   area: 0
   chain: 0
   cost: 2100

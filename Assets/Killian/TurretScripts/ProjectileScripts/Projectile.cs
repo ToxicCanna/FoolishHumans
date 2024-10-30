@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
             //inherit stats from original tower
             aoeRadius = tower.Area;
             path = tower.Path;
-            chain = tower.Chain;
+            //chain = tower.Chain;
         }
         if (target != null)
         {
@@ -89,7 +89,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Initialize(Transform target, int damageValue)
+    public virtual void Initialize(Transform target, int damageValue)
     {
         this.target = target;
         this.damage = damageValue;

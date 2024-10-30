@@ -10,7 +10,9 @@ public class SpiderTower : Tower
 
         if (level == 2)
         {
-
+            range += 5;
+            area += 0.5f;
+            atkSpd += 10;
         }
     }
 }

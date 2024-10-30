@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkeletonTO
   m_EditorClassIdentifier: 
   atkSpd: 10
-  atkDmg: 0
+  atkDmg: 5
   range: 25
   area: 0
   chain: 0

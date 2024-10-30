@@ -7,12 +7,16 @@ public class Lightning : Projectile
     public GameObject chainPrefab;
 
 
-    private Vector3 lastTargetPosition;
-    private float lastArea;
+    private Vector3 hitLoc;
 
     protected override void Start()
     {
         base.Start();
+        Tower tower = GetComponentInParent<Tower>();
+        if (tower != null)
+        {
+            chain = tower.Chain;
+        }
     }
     protected override void OnTriggerEnter(Collider other)
     {
@@ -61,21 +65,25 @@ public class Lightning : Projectile
         if (target == null || chainsLeft <= 0)
             yield break;
 
+        Debug.Log("chains left" + chainsLeft);
+
         EnemyBase enemy = target.GetComponent<EnemyBase>();
         if (enemy != null && !hitEnemies.Contains(enemy))
         {
             // Damage the enemy and record it
+
+            hitLoc = enemy.transform.position;
             enemy.TakeDamage(damage);
             hitEnemies.Add(enemy);
 
-            GameObject lightning = Instantiate(chainPrefab, target.position, Quaternion.identity);
+            GameObject lightning = Instantiate(chainPrefab, hitLoc, Quaternion.identity);
             Destroy(lightning, .5f);
         }
 
         yield return new WaitForSeconds(0.1f);
 
         // Find the next enemy to chain to
-        Transform nextTarget = FindClosestEnemy(target.position, hitEnemies);
+        Transform nextTarget = FindClosestEnemy(hitLoc, hitEnemies);
         if (nextTarget != null)
         {
             yield return ChainLightning(nextTarget, chainsLeft - 1, hitEnemies); // Call again for the next target
@@ -121,10 +129,9 @@ public class Lightning : Projectile
         float scaleFactor = area * 4;
         lightning.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
 
-        lastTargetPosition = targetPosition;
-        lastArea = area;
+        hitLoc = targetPosition;
 
-        Collider[] hitColliders = Physics.OverlapSphere(targetPosition, area);
+        Collider[] hitColliders = Physics.OverlapSphere(hitLoc, area);
         HashSet<EnemyBase> damagedEnemies = new HashSet<EnemyBase>();
 
         foreach (var hitCollider in hitColliders)
