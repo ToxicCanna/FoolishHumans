@@ -4,32 +4,56 @@ using UnityEngine;
 
 public class Lightning : Projectile
 {
-    public float area;
-    public int chain;
-    public GameObject lightningPrefab;
     public GameObject chainPrefab;
+
+
+    private Vector3 lastTargetPosition;
+    private float lastArea;
 
     protected override void Start()
     {
-        lifetime = trackingTime;
-        // Get the AoE radius from the parent Tower
-        Tower tower = GetComponentInParent<Tower>();
-        if (tower != null)
-        {
-            area = tower.Area; // Inherit area from the tower
-            chain = tower.Chain; // inherit chain from tower
-        }
+        base.Start();
     }
     protected override void OnTriggerEnter(Collider other)
     {
-        EnemyBase enemy = other.transform.GetComponent<EnemyBase>();
-
-        if (other.transform.CompareTag("Enemy") && enemy != null)
+         // Check if the projectile hits an enemy
+        if (other.CompareTag("Enemy"))
         {
-            enemy.TakeDamage(damage);
-            Destroy(gameObject, .5f);
+            EnemyBase enemy = other.GetComponent<EnemyBase>();
+            if (enemy != null)
+            {
+                if (path != 2)
+                {
+                    // Start the chain lightning effect
+                    StartCoroutine(ChainLightning(other.transform, chain, new HashSet<EnemyBase>()));
+
+                }
+                else if (path == 2)
+                {
+                    LightningOrb(other.transform.position, aoeRadius);
+                }
+            }
+            else
+            {
+                Debug.Log("enemy is null");
+            }
         }
-        StartCoroutine(ChainLightning(target, chain, new HashSet<EnemyBase>()));
+
+        // "Destroy" the projectile after hitting
+        Renderer projectileRenderer = GetComponent<Renderer>();
+        Collider projectileCollider = GetComponent<Collider>();
+
+        if (projectileRenderer != null)
+        {
+            projectileRenderer.enabled = false; // Hide the projectile
+        }
+
+        if (projectileCollider != null)
+        {
+            projectileCollider.enabled = false; // Disable collider to prevent further interactions
+        }
+        //actually destroy projectile afer 2 secs
+        Destroy(gameObject, 2f);
     }
 
     private IEnumerator ChainLightning(Transform target, int chainsLeft, HashSet<EnemyBase> hitEnemies)
@@ -41,9 +65,8 @@ public class Lightning : Projectile
         if (enemy != null && !hitEnemies.Contains(enemy))
         {
             // Damage the enemy and record it
-            //enemy.TakeDamage(damage);
+            enemy.TakeDamage(damage);
             hitEnemies.Add(enemy);
-            //Debug.Log($"Dealing {damage} to {target.name}");
 
             GameObject lightning = Instantiate(chainPrefab, target.position, Quaternion.identity);
             Destroy(lightning, .5f);
@@ -56,17 +79,17 @@ public class Lightning : Projectile
         if (nextTarget != null)
         {
             yield return ChainLightning(nextTarget, chainsLeft - 1, hitEnemies); // Call again for the next target
-            Debug.Log("Next Target" + target.name);
+            Debug.Log("Next Target" + nextTarget.name);
         }
         else
         {
-            Debug.Log("help meh");
+            Debug.Log("No Target to chain to");
         }
     }
 
     private Transform FindClosestEnemy(Vector3 origin, HashSet<EnemyBase> hitEnemies)
     {
-        Collider[] hitColliders = Physics.OverlapSphere(origin, area);
+        Collider[] hitColliders = Physics.OverlapSphere(origin, aoeRadius);
         Debug.Log($"Found {hitColliders.Length} colliders in range");
 
         Transform closestEnemy = null;
@@ -89,5 +112,34 @@ public class Lightning : Projectile
             }
         }
         return closestEnemy;
+    }
+
+    private void LightningOrb(Vector3 targetPosition, float area)
+    {
+        GameObject lightning = Instantiate(chainPrefab, target.position, Quaternion.identity);
+
+        float scaleFactor = area * 4;
+        lightning.transform.localScale = new Vector3(scaleFactor, scaleFactor, scaleFactor);
+
+        lastTargetPosition = targetPosition;
+        lastArea = area;
+
+        Collider[] hitColliders = Physics.OverlapSphere(targetPosition, area);
+        HashSet<EnemyBase> damagedEnemies = new HashSet<EnemyBase>();
+
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Enemy"))
+            {
+                EnemyBase enemy = hitCollider.GetComponent<EnemyBase>();
+                if (enemy != null && !damagedEnemies.Contains(enemy))
+                {
+                    enemy.TakeDamage(damage);
+                    damagedEnemies.Add(enemy);
+                }
+            }
+        }
+
+        Destroy(lightning, .5f);
     }
 }

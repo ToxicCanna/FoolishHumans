@@ -107,6 +107,7 @@ MonoBehaviour:
   path2: {fileID: 11400000, guid: 3b12d76cb15dc404b975c45e473f64f2, type: 2}
   shotPrefab: {fileID: 1379582864326683640, guid: f6fedceee2d2e664cb74300f30a83074, type: 3}
   upgradePanel: {fileID: 0}
+  bombPrefab: {fileID: 350234364654623216, guid: ec9f3b120a969d7498c4336757b28415, type: 3}
 --- !u!136 &2833395408990753059
 CapsuleCollider:
   m_ObjectHideFlags: 0

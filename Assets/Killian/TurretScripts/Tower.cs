@@ -21,8 +21,6 @@ public class Tower : MonoBehaviour
     protected int cost;
     protected int path;
 
-    public GameObject upgradePanel;
-
     public float Area
     {
         get { return area; }
@@ -41,12 +39,6 @@ public class Tower : MonoBehaviour
     {
         InitializeTower(defaultData);
         canShoot = true;
-    }
-
-    public void Start()
-    {
-        var attackTime = 1 / (atkSpd / 50f);
-        Debug.Log(attackTime);
     }
 
     private void Update()
@@ -96,7 +88,7 @@ public class Tower : MonoBehaviour
     {
         canShoot = false;
 
-        var attackTime = 1 / (atkSpd / 50f);
+        var attackTime = 1 / (atkSpd / 50);
         yield return new WaitForSeconds(attackTime);
 
         canShoot = true;
@@ -122,30 +114,13 @@ public class Tower : MonoBehaviour
         level++;
     }
 
-    public void OnUpgradePath1Selected()
-    {
-        SetPath1();
-        CloseUpgradeMenu();
-    }
-
-    public void OnUpgradePath2Selected()
-    {
-        SetPath2();
-        CloseUpgradeMenu();
-    }
-
-    protected void CloseUpgradeMenu()
-    {
-        upgradePanel.SetActive(false);
-    }
-
-    public void SetPath1()
+    public virtual void SetPath1()
     {
         InitializeTower(path1);
         path = 1;
     }
 
-    public void SetPath2()
+    public virtual void SetPath2()
     {
         InitializeTower(path2);
         path = 2;

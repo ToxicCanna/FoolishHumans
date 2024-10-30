@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ZapTower : Tower
 {
-    public GameObject lightningPrefab;
-    private Vector3 HitLoc;
+    /// <summary>
+    /// This Code Works on its own, and will call the lightning effect without projectiles. this was changed to use a projectile, but this can be used as backup.
+    /// </summary>
 
-    /*protected override void Shoot(Transform target)
+    /*public GameObject lightningPrefab;
+    public Vector3 HitLoc;
+
+    protected override void Shoot(Transform target)
     {
         StartCoroutine(ChainLightning(target, chain, new HashSet<EnemyBase>()));
         StartCoroutine(ShotCooldown());
@@ -79,7 +83,9 @@ public class ZapTower : Tower
 
         if (level == 2)
         {
-
+            atkDmg += 2;
+            atkSpd += 10;
+            range += 5;
         }
     }
 }

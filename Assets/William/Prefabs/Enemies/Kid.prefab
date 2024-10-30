@@ -100,13 +100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 3
+  blood: 10
   attackPower: 0
   moveSpeed: 4
-  moveSpeedSlowed: 0.1
+  moveSpeedSlowed: 0.5
   atkSpeed: 10
   stunTimer: 5
   slowTimer: 5
-  isMoving: 0
   myAgent: {fileID: 4573726553095596531}
 --- !u!136 &6089212552018072222
 CapsuleCollider:

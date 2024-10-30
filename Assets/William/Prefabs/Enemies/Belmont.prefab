@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 50
+  blood: 100
   attackPower: 20
   moveSpeed: 10
   moveSpeedSlowed: 7
