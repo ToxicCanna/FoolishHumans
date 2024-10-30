@@ -108,13 +108,9 @@ public class Tower : MonoBehaviour
         StartCoroutine(ShotCooldown());
     }
 
-    protected virtual void Upgrade()
+    public virtual void Upgrade()
     {
         level++;
-        if (level >= 3)
-        {
-            ShowUpgradeMenu();
-        }
     }
     protected void ShowUpgradeMenu()
     {
@@ -148,5 +144,10 @@ public class Tower : MonoBehaviour
     {
         InitializeTower(path2);
         path = 2;
+    }
+
+    public int GetLevel()
+    {
+        return level;
     }
 }

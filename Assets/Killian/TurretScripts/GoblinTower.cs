@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoblinTower : Tower
 {
-    protected override void Upgrade()
+    public override void Upgrade()
     {
         base.Upgrade();
 

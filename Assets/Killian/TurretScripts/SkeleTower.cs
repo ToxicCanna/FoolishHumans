@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkeleTower : Tower
 {
-    protected override void Upgrade()
+    public override void Upgrade()
     {
         base.Upgrade();
 
