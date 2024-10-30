@@ -70,7 +70,7 @@ public class ZapTower : Tower
         return closestEnemy;
     }
 
-    protected override void Upgrade()
+    public override void Upgrade()
     {
         base.Upgrade();
 
