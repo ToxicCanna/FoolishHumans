@@ -1,20 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class WebBlob : Projectile
 {
-    public float aoeRadius; //set form the origin tower
-    protected override void Start()
-    {
-        lifetime = trackingTime;
-        // Get the AoE radius from the parent Tower
-        Tower tower = GetComponentInParent<Tower>();
-        if (tower != null)
-        {
-            aoeRadius = tower.Area; // Inherit area from the tower
-        }
-    }
 
     protected override void OnTriggerEnter(Collider collision)
     {
@@ -30,10 +20,16 @@ public class WebBlob : Projectile
         foreach (var hitCollider in hitColliders)
         {
             EnemyBase enemy = hitCollider.GetComponent<EnemyBase>();
-            if (enemy != null && hitCollider.CompareTag("Enemy"))
+            if (enemy != null && hitCollider.CompareTag("Enemy") && path != 1)
             {
+                Debug.Log("getslowed is called");
                 // Apply slow to each enemy in range
                 StartCoroutine(enemy.GetSlowed());
+            }
+            else if (enemy != null && hitCollider.CompareTag("Enemy") && path == 1)
+            {
+                Debug.Log("getstunned is called");
+                StartCoroutine(enemy.GetStuned());
             }
         }
     }

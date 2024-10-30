@@ -10,7 +10,7 @@ public class SpiderTower : Tower
 
         if (level == 2)
         {
-            return;
+
         }
     }
 }

@@ -102,7 +102,7 @@ MonoBehaviour:
   healthPoints: 3
   attackPower: 0
   moveSpeed: 4
-  moveSpeedSlowed: 2
+  moveSpeedSlowed: 0.1
   atkSpeed: 10
   stunTimer: 5
   slowTimer: 5

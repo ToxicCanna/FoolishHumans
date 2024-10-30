@@ -26,7 +26,7 @@ public class EnemyBase : MonoBehaviour
     {
         healthPoints = healthPoints - damage;
 
-        Debug.Log("health" + healthPoints);
+        //Debug.Log("health" + healthPoints);
 
         if(healthPoints <= 0)
         {
@@ -36,7 +36,7 @@ public class EnemyBase : MonoBehaviour
 
     public IEnumerator GetSlowed()
     {
-        Debug.Log("slowed");
+        //Debug.Log("slowed");
         myAgent.speed = moveSpeedSlowed;
         yield return new WaitForSeconds(slowTimer);
         Move();
@@ -52,7 +52,7 @@ public class EnemyBase : MonoBehaviour
     protected IEnumerator Attack()
     {
         //play animation
-        Debug.Log("I attack, dmg: " + attackPower);
+        //Debug.Log("I attack, dmg: " + attackPower);
         CastleScript.Instance.TakeDamage(attackPower);
         yield return new WaitForSeconds(atkSpeed);
         StartCoroutine(Attack());
@@ -68,7 +68,7 @@ public class EnemyBase : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("I got to the zone");
+        //Debug.Log("I got to the zone");
         StartCoroutine(Attack());
     }
 }

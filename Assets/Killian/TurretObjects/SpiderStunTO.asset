@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpiderStunTO
   m_EditorClassIdentifier: 
   atkSpd: 75
-  atkDmg: 5
+  atkDmg: 0
   range: 20
   area: 2
   chain: 0

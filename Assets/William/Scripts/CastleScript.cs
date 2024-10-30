@@ -10,7 +10,7 @@ public class CastleScript : Singleton<CastleScript>
 
     public void TakeDamage(float damage)
     {
-        Debug.Log("Castle took damage: " + damage);
+        //Debug.Log("Castle took damage: " + damage);
     }
 
 }

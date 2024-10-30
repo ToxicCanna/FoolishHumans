@@ -7,8 +7,9 @@ public class Lightning : Projectile
     public float area;
     public int chain;
     public GameObject lightningPrefab;
+    public GameObject chainPrefab;
 
-    /*protected override void Start()
+    protected override void Start()
     {
         lifetime = trackingTime;
         // Get the AoE radius from the parent Tower
@@ -26,6 +27,7 @@ public class Lightning : Projectile
         if (other.transform.CompareTag("Enemy") && enemy != null)
         {
             enemy.TakeDamage(damage);
+            Destroy(gameObject, .5f);
         }
         StartCoroutine(ChainLightning(target, chain, new HashSet<EnemyBase>()));
     }
@@ -39,11 +41,11 @@ public class Lightning : Projectile
         if (enemy != null && !hitEnemies.Contains(enemy))
         {
             // Damage the enemy and record it
-            enemy.TakeDamage(damage);
+            //enemy.TakeDamage(damage);
             hitEnemies.Add(enemy);
-            Debug.Log($"Dealing {damage} to {target.name}");
+            //Debug.Log($"Dealing {damage} to {target.name}");
 
-            GameObject lightning = Instantiate(lightningPrefab, target.position, Quaternion.identity);
+            GameObject lightning = Instantiate(chainPrefab, target.position, Quaternion.identity);
             Destroy(lightning, .5f);
         }
 
@@ -54,6 +56,7 @@ public class Lightning : Projectile
         if (nextTarget != null)
         {
             yield return ChainLightning(nextTarget, chainsLeft - 1, hitEnemies); // Call again for the next target
+            Debug.Log("Next Target" + target.name);
         }
         else
         {
@@ -86,5 +89,5 @@ public class Lightning : Projectile
             }
         }
         return closestEnemy;
-    }*/
+    }
 }

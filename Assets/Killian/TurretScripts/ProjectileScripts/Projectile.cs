@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -8,12 +9,20 @@ public class Projectile : MonoBehaviour
     public float speed = 10f;
     public float trackingTime = 10f;
     public int damage;
+    public float aoeRadius;
+    public int path;
 
     protected float lifetime;
 
     protected virtual void Start()
     {
         lifetime = trackingTime;
+        Tower tower = GetComponentInParent<Tower>();
+        if (tower != null)
+        {
+            aoeRadius = tower.Area; // Inherit area from the tower
+            path = tower.Path;
+        }
     }
 
     protected void Update()

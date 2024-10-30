@@ -32,6 +32,10 @@ public class Tower : MonoBehaviour
     {
         get { return chain; }
     }
+    public int Path
+    {
+        get { return path; }
+    }
 
     private void Awake()
     {
@@ -102,7 +106,7 @@ public class Tower : MonoBehaviour
     {
         if (!canShoot) return;
 
-        GameObject shot = Instantiate(shotPrefab, transform.position + new Vector3(0,(float)5.4,0), Quaternion.Euler(0,0,90));
+        GameObject shot = Instantiate(shotPrefab, transform.position + new Vector3(0,(float)5.4,0), Quaternion.Euler(0,0,90), this.gameObject.transform);
 
         Projectile projectile = shot.GetComponent<Projectile>();
         if (projectile != null)

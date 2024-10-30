@@ -786,6 +786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinTower3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8033821873774285727, guid: 774f1e745d5b21d4f9adeefa4ccd7ff2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23786,6 +23790,10 @@ PrefabInstance:
     - target: {fileID: 5324082837710870626, guid: 3d575ed04fc4060469dd2410693190be, type: 3}
       propertyPath: m_Name
       value: ManSpiderTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324082837710870626, guid: 3d575ed04fc4060469dd2410693190be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
