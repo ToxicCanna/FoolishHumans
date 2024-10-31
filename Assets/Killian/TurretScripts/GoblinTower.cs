@@ -6,8 +6,12 @@ public class GoblinTower : Tower
 {
     public override void Upgrade()
     {
-        level++;
-        atkSpd += 0.1f;
-        atkDmg += 5;
+        base.Upgrade();
+
+        if (level == 2)
+        {
+            atkSpd += 0.2f;
+            atkDmg += 10;
+        }
     }
 }

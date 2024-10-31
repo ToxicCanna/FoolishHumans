@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -11,52 +12,142 @@ public class Tower : MonoBehaviour
 
     private bool canShoot;
 
-    public float atkSpd;
-    public float atkDmg;
-    public float range;
-    public float area;
-    public float chain;
-    public int level;
-    public int cost;
+    protected float atkSpd;
+    protected int atkDmg;
+    protected float range;
+    protected float area;
+    protected int chain;
+    protected int level;
+    protected int cost;
+    protected int path;
+
+    public GameObject upgradePanel;
+
+    public float Area
+    {
+        get { return area; }
+    }
 
     private void Awake()
     {
-        atkSpd = defaultData.atkSpd;
-        atkDmg = defaultData.atkDmg;
-        range = defaultData.range;
-        area = defaultData.area;
-        chain = defaultData.chain;
-        level = defaultData.level;
-        cost = defaultData.cost;
+        InitializeTower(defaultData);
+        canShoot = true;
     }
 
-    private void Shoot()
+    public void Start()
     {
+        var attackTime = 1 / (atkSpd / 50f);
+        Debug.Log(attackTime);
+    }
 
+    private void Update()
+    {
+        if (canShoot)
+        {
+            Transform target = FindClosestEnemy();
+            if (target != null)
+            {
+                Shoot(target);
+            }
+        }
+    }
+    private void InitializeTower(TurretObject data)
+    {
+        atkSpd = data.atkSpd;
+        atkDmg = data.atkDmg;
+        range = data.range;
+        area = data.area;
+        chain = data.chain;
+        level = data.level;
+        cost = data.cost;
+    }
+
+    private Transform FindClosestEnemy()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
+        Transform closestEnemy = null;
+        float closestDistance = Mathf.Infinity;
+
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Enemy"))
+            {
+                float distance = Vector3.Distance(transform.position, hitCollider.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestEnemy = hitCollider.transform;
+                }
+            }
+        }
+        return closestEnemy;
+    }
+
+    protected virtual IEnumerator ShotCooldown()
+    {
+        canShoot = false;
+
+        var attackTime = 1 / (atkSpd / 50f);
+        yield return new WaitForSeconds(attackTime);
+
+        canShoot = true;
+    }
+
+    protected virtual void Shoot(Transform target)
+    {
+        if (!canShoot) return;
+
+        GameObject shot = Instantiate(shotPrefab, transform.position + new Vector3(0,(float)5.4,0), Quaternion.Euler(0,0,90));
+
+        Projectile projectile = shot.GetComponent<Projectile>();
+        if (projectile != null)
+        {
+            projectile.Initialize(target, atkDmg);
+        }
+
+        StartCoroutine(ShotCooldown());
     }
 
     public virtual void Upgrade()
     {
-
+        level++;
     }
-    private void MaxUp(TurretObject newPath)
+    protected void ShowUpgradeMenu()
     {
-        atkSpd = newPath.atkSpd;
-        atkDmg = newPath.atkDmg;
-        range = newPath.range;
-        area = newPath.area;
-        chain = newPath.chain;
-        level = newPath.level;
-        cost =  newPath.cost;
+        upgradePanel.SetActive(true);
+    }
+
+    public void OnUpgradePath1Selected()
+    {
+        SetPath1();
+        CloseUpgradeMenu();
+    }
+
+    public void OnUpgradePath2Selected()
+    {
+        SetPath2();
+        CloseUpgradeMenu();
+    }
+
+    protected void CloseUpgradeMenu()
+    {
+        upgradePanel.SetActive(false);
     }
 
     public void SetPath1()
     {
-        MaxUp(path1);
+        InitializeTower(path1);
+        path = 1;
     }
 
     public void SetPath2()
     {
-        MaxUp(path2);
+        InitializeTower(path2);
+        path = 2;
+    }
+
+    public int GetLevel()
+    {
+        return level;
     }
 }

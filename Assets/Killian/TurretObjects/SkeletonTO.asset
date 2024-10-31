@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7418a5a8d0606f24e8093c18a55fe3a2, type: 3}
   m_Name: SkeletonTO
   m_EditorClassIdentifier: 
-  atkSpd: 0.5
-  atkDmg: 15
+  atkSpd: 1
+  atkDmg: 0
   range: 25
-  level: 1
+  area: 0
+  chain: 0
   cost: 350
+  level: 1

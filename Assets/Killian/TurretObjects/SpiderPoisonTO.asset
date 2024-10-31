@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7418a5a8d0606f24e8093c18a55fe3a2, type: 3}
   m_Name: SpiderPoisonTO
   m_EditorClassIdentifier: 
-  atkSpd: 1
+  atkSpd: 75
   atkDmg: 5
   range: 20
   area: 0

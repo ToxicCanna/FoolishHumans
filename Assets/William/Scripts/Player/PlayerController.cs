@@ -13,6 +13,11 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private GameObject buildMenu;
     [SerializeField] private GameObject upgradeOrDismantleMenu;
     [SerializeField] private GameObject maxUpgradeMenu;
+
+    [SerializeField] private TrailCheck trailCheck;
+    [SerializeField] private TowerCheck buildTowerCheck; //bigger collider to see if something is too close
+    [SerializeField] private TowerCheck upgradeTowerCheck; //smaller collider used to upgrade a tower
+
     private bool isMoving;
     // Start is called before the first frame update
     void Start()
@@ -52,8 +57,23 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (!isMoving)
         {
+            if (trailCheck.IsAboveTrail())
+            {
+                return;
+            }
+            else if (upgradeTowerCheck.IsAboveTower())
+            {
+                upgradeOrDismantleMenu.SetActive(true);
+            }
+            else if (buildTowerCheck.IsAboveTower())
+            {
+                Debug.Log("too close");
+            }
+            else {
+                buildMenu.SetActive(true);
+            }
             //if nothing is around the player, open build menu
-            buildMenu.SetActive(true);
+            
 
 
             //if tower is around the player, open upgradeOrDismantle menu
