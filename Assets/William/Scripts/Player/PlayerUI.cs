@@ -11,6 +11,8 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject buildMenu;
     [SerializeField] private GameObject upgradeOrDismantleMenu;
     [SerializeField] private GameObject maxUpgradeMenu;
+    [SerializeField] private Transform playerTransform;
+
     private Tower selectedTower;
     private void FixedUpdate()
     {
@@ -21,7 +23,7 @@ public class PlayerUI : MonoBehaviour
     {
         CloseMenus();
 
-        GameManager.Instance.BuildTower((SpawnableTowers)tower);
+        GameManager.Instance.BuildTower((SpawnableTowers)tower, playerTransform);
 
     }
 

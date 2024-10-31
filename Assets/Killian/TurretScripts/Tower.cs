@@ -36,6 +36,10 @@ public class Tower : MonoBehaviour
     {
         get { return path; }
     }
+    public int Cost
+    {
+        get { return cost; }
+    }
 
     private void Awake()
     {
@@ -114,6 +118,8 @@ public class Tower : MonoBehaviour
     public virtual void Upgrade()
     {
         level++;
+        cost = defaultData.cost * level;
+        ScoreManager.Instance.PayBlood(cost);
     }
 
     public virtual void SetPath1()
