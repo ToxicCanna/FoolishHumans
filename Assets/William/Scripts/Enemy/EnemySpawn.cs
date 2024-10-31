@@ -12,10 +12,10 @@ public class EnemySpawn : MonoBehaviour
     private int currentWave;
 
 
-    public void Start()
+
+    public void StartSpawning(int waveNum)
     {
-        //a test. delete this and call from gamemanager once that is ready. 
-        StartCoroutine(SpawnEnemy(0));
+        StartCoroutine(SpawnEnemy(waveNum));
     }
     IEnumerator SpawnEnemy(int waveNum)
     {

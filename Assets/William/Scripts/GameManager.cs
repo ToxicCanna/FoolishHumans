@@ -5,6 +5,47 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public GameObject[] towerPrefabs;
+    [SerializeField] private EnemySpawn[] enemySpawnPoints;
+
+    [SerializeField] private float initialSpawnDelay;
+    [SerializeField] private float delayBetweenWaves;
+    private int _currentWave;
+    [SerializeField] private int totalWaves;
+
+    private void Start()
+    {
+        _currentWave = 0;
+        StartCoroutine(InitSpawn());
+    }
+
+    IEnumerator InitSpawn()
+    {
+        yield return new WaitForSeconds(initialSpawnDelay);
+        BroadcastSpawn();
+        _currentWave = _currentWave + 1;
+        if (_currentWave < totalWaves)
+        {
+            StartCoroutine(spawnWaves());
+        }
+    }
+    IEnumerator spawnWaves()
+    { 
+        yield return new WaitForSeconds(delayBetweenWaves);
+        BroadcastSpawn();
+        _currentWave = _currentWave + 1;
+        if (_currentWave < totalWaves)
+        {
+            StartCoroutine(spawnWaves());
+        }
+    }
+
+    private void BroadcastSpawn()
+    {
+        for (int i = 0; i < enemySpawnPoints.Length; i++)
+        {
+            enemySpawnPoints[i].StartSpawning(_currentWave);
+        }
+    }
 
     public void BuildTower(SpawnableTowers tower, Transform playerTransform)
     {

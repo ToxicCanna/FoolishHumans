@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2dcf07b7d2f8b1749a92b3d781c0f502, type: 3}
-  m_Name: EnemySpawnPattern B
+  m_Name: EnemySpawnPatternD
   m_EditorClassIdentifier: 
   spawnEnemyPatterns:
     list:
-    - list: 00000000
-    - list: 00000000
     - list: 03000000
+    - list: 0100000002000000
+    - list: 00000000
     - list: 04000000
-    - list: 0400000003000000
+    - list: 0400000004000000
