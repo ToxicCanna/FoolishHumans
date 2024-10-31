@@ -37,7 +37,7 @@ public class EnemyBase : MonoBehaviour
         {
             ScoreManager.Instance.AddBlood(blood);
 
-            Renderer renderer = GetComponent<Renderer>();
+            Renderer renderer = GetComponentInChildren<Renderer>();
             Collider collider = GetComponent<Collider>();
             renderer.enabled = false;
             collider.enabled = false;
