@@ -17,5 +17,5 @@ MonoBehaviour:
   range: 25
   area: 5
   chain: 5
-  cost: 3000
+  cost: 2500
   level: 3
