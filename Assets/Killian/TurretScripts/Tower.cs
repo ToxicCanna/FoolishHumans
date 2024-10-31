@@ -126,12 +126,16 @@ public class Tower : MonoBehaviour
     {
         InitializeTower(path1);
         path = 1;
+        cost = path1.cost;
+        ScoreManager.Instance.PayBlood(cost);
     }
 
     public virtual void SetPath2()
     {
         InitializeTower(path2);
         path = 2;
+        cost = path2.cost;
+        ScoreManager.Instance.PayBlood(cost);
     }
 
     public int GetLevel()

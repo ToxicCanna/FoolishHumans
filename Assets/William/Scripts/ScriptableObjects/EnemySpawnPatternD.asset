@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnEnemyPatterns:
     list:
-    - list: 03000000
+    - list: 01000000
     - list: 0100000002000000
     - list: 00000000
     - list: 04000000

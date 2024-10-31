@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/KyleFolder/KyleScenes/MainMenu.unity
+    guid: c014a2ec3d22a2549b1e97281bb328b3
+  - enabled: 0
     path: Assets/KyleFolder/KyleScenes/KyleTestScene.unity
     guid: ee8266232442b274d83760e28cab6d35
+  - enabled: 1
+    path: Assets/William/Scenes/MainLevel1.unity
+    guid: 61955bb2f33ec244f8c8e1eedf0265e4
+  - enabled: 1
+    path: Assets/William/Scenes/YouWinScreen.unity
+    guid: cb1be626647bd5741b361fcc5a2ec449
+  - enabled: 1
+    path: Assets/William/Scenes/GameOver.unity
+    guid: 7db430f445fae144a991af21673d74f0
   m_configObjects: {}

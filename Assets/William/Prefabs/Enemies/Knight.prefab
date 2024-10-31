@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 10
-  blood: 25
+  blood: 750
   attackPower: 8
   moveSpeed: 6
   moveSpeedSlowed: 4

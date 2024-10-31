@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -18,6 +19,21 @@ public class GameManager : Singleton<GameManager>
         StartCoroutine(InitSpawn());
     }
 
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void BossDestroyed()
+    {
+        StartCoroutine(YouWin());
+    }
+    IEnumerator YouWin()
+    {
+
+        yield return new WaitForSeconds(6);
+        SceneManager.LoadScene("YouWinScreen");
+    }
     IEnumerator InitSpawn()
     {
         yield return new WaitForSeconds(initialSpawnDelay);

@@ -100,6 +100,14 @@ public class EnemyBase : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         //Debug.Log("I got to the zone");
-        StartCoroutine(Attack());
+        if (other.gameObject.layer == LayerMask.NameToLayer("Castle"))
+        {
+            StartCoroutine(Attack());
+        }
+    }
+
+    public float GetHealth()
+    {
+        return healthPoints;
     }
 }

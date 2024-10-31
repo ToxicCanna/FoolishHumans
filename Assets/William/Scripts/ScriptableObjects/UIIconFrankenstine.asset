@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0798a4f45029f3941999e8d22db38420, type: 3}
   m_Name: UIIconFrankenstine
   m_EditorClassIdentifier: 
-  iconPathA: {fileID: 21300000, guid: 0fbfabe9cd68b0a4aa44b57a1916c9dc, type: 3}
-  iconPathB: {fileID: 21300000, guid: b0f9616473c92f64abe514dbd0cccf64, type: 3}
+  iconPathA: {fileID: 21300000, guid: b0f9616473c92f64abe514dbd0cccf64, type: 3}
+  iconPathB: {fileID: 21300000, guid: 0fbfabe9cd68b0a4aa44b57a1916c9dc, type: 3}

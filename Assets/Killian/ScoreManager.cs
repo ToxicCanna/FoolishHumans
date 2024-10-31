@@ -8,7 +8,7 @@ public class ScoreManager : Singleton<ScoreManager>
     public void AddBlood(int amount)
     {
         blood += amount;
-        Debug.Log("Blood: " + blood);
+       // Debug.Log("Blood: " + blood);
     }
 
     public void PayBlood(int amount)
