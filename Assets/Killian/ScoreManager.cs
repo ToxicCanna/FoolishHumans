@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : Singleton<ScoreManager>
 {
     public static ScoreManager Instance;
 
@@ -22,6 +22,12 @@ public class ScoreManager : MonoBehaviour
     public void AddBlood(int amount)
     {
         blood += amount;
+        Debug.Log("Blood: " + blood);
+    }
+
+    public void PayBlood(int amount)
+    {
+        blood -= amount;
         Debug.Log("Blood: " + blood);
     }
 
