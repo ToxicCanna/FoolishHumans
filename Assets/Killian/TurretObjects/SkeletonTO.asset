@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7418a5a8d0606f24e8093c18a55fe3a2, type: 3}
   m_Name: SkeletonTO
   m_EditorClassIdentifier: 
-  atkSpd: 1
-  atkDmg: 0
+  atkSpd: 10
+  atkDmg: 5
   range: 25
   area: 0
   chain: 0

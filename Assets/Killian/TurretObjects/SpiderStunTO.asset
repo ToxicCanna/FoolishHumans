@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7418a5a8d0606f24e8093c18a55fe3a2, type: 3}
   m_Name: SpiderStunTO
   m_EditorClassIdentifier: 
-  atkSpd: 75
-  atkDmg: 5
+  atkSpd: 50
+  atkDmg: 0
   range: 20
-  area: 2
+  area: 3
   chain: 0
   cost: 1200
   level: 3

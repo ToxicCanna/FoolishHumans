@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class ZapTower : Tower
 {
-    public GameObject lightningPrefab;
+    /// <summary>
+    /// This Code Works on its own, and will call the lightning effect without projectiles. this was changed to use a projectile, but this can be used as backup.
+    /// </summary>
+
+    /*public GameObject lightningPrefab;
+    public Vector3 HitLoc;
 
     protected override void Shoot(Transform target)
     {
@@ -26,13 +31,15 @@ public class ZapTower : Tower
             Debug.Log($"Dealing {atkDmg} to {target.name}");
 
             GameObject lightning = Instantiate(lightningPrefab, target.position, Quaternion.identity);
+
+            HitLoc = target.position;
             Destroy(lightning, .5f);
         }
 
         yield return new WaitForSeconds(0.1f);
 
         // Find the next enemy to chain to
-        Transform nextTarget = FindClosestEnemy(target.position, hitEnemies);
+        Transform nextTarget = FindClosestEnemy(HitLoc, hitEnemies);
         if (nextTarget != null)
         {
             yield return ChainLightning(nextTarget, chainsLeft - 1, hitEnemies); // Call again for the next target
@@ -68,7 +75,7 @@ public class ZapTower : Tower
             }
         }
         return closestEnemy;
-    }
+    }*/
 
     public override void Upgrade()
     {
@@ -76,7 +83,9 @@ public class ZapTower : Tower
 
         if (level == 2)
         {
-
+            atkDmg += 2;
+            atkSpd += 10;
+            range += 5;
         }
     }
 }

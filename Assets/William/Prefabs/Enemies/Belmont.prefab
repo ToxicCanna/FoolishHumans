@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7826901876561273397}
   m_Layer: 0
   m_Name: Belmont
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 50
+  blood: 100
   attackPower: 20
   moveSpeed: 10
   moveSpeedSlowed: 7

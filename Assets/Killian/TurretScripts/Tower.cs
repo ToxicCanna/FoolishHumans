@@ -10,6 +10,8 @@ public class Tower : MonoBehaviour
     public TurretObject path2;
     public GameObject shotPrefab;
 
+    public SpawnableTowers towerType;
+
     private bool canShoot;
 
     protected float atkSpd;
@@ -21,23 +23,24 @@ public class Tower : MonoBehaviour
     protected int cost;
     protected int path;
 
-    public GameObject upgradePanel;
-
     public float Area
     {
         get { return area; }
+    }
+
+    public int Chain
+    {
+        get { return chain; }
+    }
+    public int Path
+    {
+        get { return path; }
     }
 
     private void Awake()
     {
         InitializeTower(defaultData);
         canShoot = true;
-    }
-
-    public void Start()
-    {
-        var attackTime = 1 / (atkSpd / 50f);
-        Debug.Log(attackTime);
     }
 
     private void Update()
@@ -87,7 +90,7 @@ public class Tower : MonoBehaviour
     {
         canShoot = false;
 
-        var attackTime = 1 / (atkSpd / 50f);
+        var attackTime = 1 / (atkSpd / 50);
         yield return new WaitForSeconds(attackTime);
 
         canShoot = true;
@@ -97,7 +100,7 @@ public class Tower : MonoBehaviour
     {
         if (!canShoot) return;
 
-        GameObject shot = Instantiate(shotPrefab, transform.position + new Vector3(0,(float)5.4,0), Quaternion.Euler(0,0,90));
+        GameObject shot = Instantiate(shotPrefab, transform.position + new Vector3(0,(float)5.4,0), Quaternion.Euler(0,0,90), this.gameObject.transform);
 
         Projectile projectile = shot.GetComponent<Projectile>();
         if (projectile != null)
@@ -112,35 +115,14 @@ public class Tower : MonoBehaviour
     {
         level++;
     }
-    protected void ShowUpgradeMenu()
-    {
-        upgradePanel.SetActive(true);
-    }
 
-    public void OnUpgradePath1Selected()
-    {
-        SetPath1();
-        CloseUpgradeMenu();
-    }
-
-    public void OnUpgradePath2Selected()
-    {
-        SetPath2();
-        CloseUpgradeMenu();
-    }
-
-    protected void CloseUpgradeMenu()
-    {
-        upgradePanel.SetActive(false);
-    }
-
-    public void SetPath1()
+    public virtual void SetPath1()
     {
         InitializeTower(path1);
         path = 1;
     }
 
-    public void SetPath2()
+    public virtual void SetPath2()
     {
         InitializeTower(path2);
         path = 2;

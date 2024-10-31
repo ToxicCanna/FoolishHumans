@@ -305,7 +305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8261550566702480060, guid: 29dcae23e751aaf45b167a341c1c0663, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -36.57
+      value: -18.009998
       objectReference: {fileID: 0}
     - target: {fileID: 8261550566702480060, guid: 29dcae23e751aaf45b167a341c1c0663, type: 3}
       propertyPath: m_LocalPosition.y
@@ -313,7 +313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8261550566702480060, guid: 29dcae23e751aaf45b167a341c1c0663, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.97
+      value: 25.769999
       objectReference: {fileID: 0}
     - target: {fileID: 8261550566702480060, guid: 29dcae23e751aaf45b167a341c1c0663, type: 3}
       propertyPath: m_LocalRotation.w
@@ -655,6 +655,10 @@ PrefabInstance:
     - target: {fileID: 8033821873774285727, guid: 774f1e745d5b21d4f9adeefa4ccd7ff2, type: 3}
       propertyPath: m_Name
       value: GoblinTower3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8033821873774285727, guid: 774f1e745d5b21d4f9adeefa4ccd7ff2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21512,7 +21516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8261550566702480060, guid: 29dcae23e751aaf45b167a341c1c0663, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.81
+      value: -16.57
       objectReference: {fileID: 0}
     - target: {fileID: 8261550566702480060, guid: 29dcae23e751aaf45b167a341c1c0663, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21520,7 +21524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8261550566702480060, guid: 29dcae23e751aaf45b167a341c1c0663, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.04
+      value: 26.39
       objectReference: {fileID: 0}
     - target: {fileID: 8261550566702480060, guid: 29dcae23e751aaf45b167a341c1c0663, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23277,6 +23281,10 @@ PrefabInstance:
     - target: {fileID: 5324082837710870626, guid: 3d575ed04fc4060469dd2410693190be, type: 3}
       propertyPath: m_Name
       value: ManSpiderTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324082837710870626, guid: 3d575ed04fc4060469dd2410693190be, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8418387027497357341, guid: 3d575ed04fc4060469dd2410693190be, type: 3}
       propertyPath: m_Materials.Array.data[0]

@@ -101,7 +101,8 @@ MonoBehaviour:
   speed: 10
   trackingTime: 10
   damage: 0
-  aoeRadius: 2
+  aoeRadius: 0
+  path: 0
 --- !u!65 &8522384708005851110
 BoxCollider:
   m_ObjectHideFlags: 0
