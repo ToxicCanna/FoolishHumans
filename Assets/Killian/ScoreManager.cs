@@ -11,6 +11,12 @@ public class ScoreManager : Singleton<ScoreManager>
         Debug.Log("Blood: " + blood);
     }
 
+    public void PayBlood(int amount)
+    {
+        blood -= amount;
+        Debug.Log("Blood: " + blood);
+    }
+
     public int GetBlood()
     {
         return blood;
