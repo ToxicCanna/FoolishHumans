@@ -64,6 +64,7 @@ public class Skeleton : Projectile // Inherit from Projectile
     private void MoveTowards(Vector3 destination)
     {
         Vector3 direction = (destination - transform.position).normalized;
+        direction.y = 0f;
         transform.position += direction * skeleSpeed * Time.deltaTime;
     }
 
@@ -74,7 +75,7 @@ public class Skeleton : Projectile // Inherit from Projectile
             if (target == null) // Only wander if there's no target
             {
                 wanderDestination = transform.position + Random.insideUnitSphere * wanderRadius;
-                wanderDestination.y = transform.position.y; // Keep the same height
+                wanderDestination.y = 0; // Keep the same height
                 yield return new WaitForSeconds(1f);
             }
             else

@@ -76,7 +76,7 @@ public class Lightning : Projectile
             enemy.TakeDamage(damage);
             hitEnemies.Add(enemy);
 
-            GameObject lightning = Instantiate(chainPrefab, hitLoc, Quaternion.identity);
+            GameObject lightning = Instantiate(chainPrefab, hitLoc + new Vector3( 0, 2.25f, 0 ), Quaternion.identity);
             Destroy(lightning, .5f);
         }
 

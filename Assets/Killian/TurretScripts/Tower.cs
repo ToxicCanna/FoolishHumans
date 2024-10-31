@@ -10,6 +10,8 @@ public class Tower : MonoBehaviour
     public TurretObject path2;
     public GameObject shotPrefab;
 
+    public SpawnableTowers towerType;
+
     private bool canShoot;
 
     protected float atkSpd;

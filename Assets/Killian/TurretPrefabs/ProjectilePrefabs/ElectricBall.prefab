@@ -104,7 +104,7 @@ MonoBehaviour:
   aoeRadius: 0
   path: 0
   chain: 0
-  chainPrefab: {fileID: 4224657849066059730, guid: c9fbd886287d90a45861028128268dcd, type: 3}
+  chainPrefab: {fileID: 2758511854367219898, guid: 8e0da09e4415f2b4ebd70d0eb832b69f, type: 3}
 --- !u!135 &2697160947384296439
 SphereCollider:
   m_ObjectHideFlags: 0

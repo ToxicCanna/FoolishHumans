@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2957853019767120854}
+  - {fileID: 4093406100119550370}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1431319087558439023
@@ -106,7 +107,6 @@ MonoBehaviour:
   path1: {fileID: 11400000, guid: e9899d968721dd04e834dbcd031ea6a2, type: 2}
   path2: {fileID: 11400000, guid: 3b12d76cb15dc404b975c45e473f64f2, type: 2}
   shotPrefab: {fileID: 1379582864326683640, guid: f6fedceee2d2e664cb74300f30a83074, type: 3}
-  upgradePanel: {fileID: 0}
   bombPrefab: {fileID: 350234364654623216, guid: ec9f3b120a969d7498c4336757b28415, type: 3}
 --- !u!136 &2833395408990753059
 CapsuleCollider:
@@ -184,3 +184,65 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &4558780080741391945
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3069185891337649057}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_Name
+      value: GoblinModel@Idle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+--- !u!4 &4093406100119550370 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+  m_PrefabInstance: {fileID: 4558780080741391945}
+  m_PrefabAsset: {fileID: 0}
