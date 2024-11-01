@@ -1,3 +1,4 @@
+using Code.Scripts.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -87,5 +88,10 @@ public class ZapTower : Tower
             atkSpd += 10;
             range += 5;
         }
+    }
+    protected override void Shoot(Transform target)
+    {
+        base.Shoot(target);
+        AudioManager.Instance.PlayAudioint(2);
     }
 }

@@ -2265,6 +2265,7 @@ MonoBehaviour:
   stunTimer: 2
   slowTimer: 2
   myAgent: {fileID: 5281495253240079902}
+  _soundeffect: 7
 --- !u!195 &5281495253240079902
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2350,6 +2351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyBaseScript: {fileID: 4213145470151844089}
+  myHealth: 0
 --- !u!1 &6384862868399621877
 GameObject:
   m_ObjectHideFlags: 0

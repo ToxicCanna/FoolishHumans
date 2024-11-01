@@ -1,3 +1,4 @@
+using Code.Scripts.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,5 +21,12 @@ public class GoblinTower : Tower
     {
         base.SetPath2();
         shotPrefab = bombPrefab;
+    }
+
+    protected override void Shoot(Transform target)
+    {
+        base.Shoot(target);
+        //AudioManager.Instance.PlayAudio(AudioType.ARROW);
+        AudioManager.Instance.PlayAudioint(1);
     }
 }

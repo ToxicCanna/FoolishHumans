@@ -754,6 +754,7 @@ MonoBehaviour:
   stunTimer: 2
   slowTimer: 2
   myAgent: {fileID: 8844327211960018043}
+  _soundeffect: 7
 --- !u!195 &8844327211960018043
 NavMeshAgent:
   m_ObjectHideFlags: 0

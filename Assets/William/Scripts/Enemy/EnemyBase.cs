@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor.AI;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
+using Code.Scripts.Managers;
 
 public class EnemyBase : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private float stunTimer;
     [SerializeField] private float slowTimer;
     [SerializeField] private NavMeshAgent myAgent;
+    [SerializeField] private int _soundeffect;
 
 
     private Coroutine slowedCoroutine = null;
@@ -36,7 +38,7 @@ public class EnemyBase : MonoBehaviour
         if (healthPoints <= 0)
         {
             ScoreManager.Instance.AddBlood(blood);
-
+            AudioManager.Instance.PlayAudioint(_soundeffect);
             Renderer renderer = GetComponentInChildren<Renderer>();
             Collider collider = GetComponent<Collider>();
             renderer.enabled = false;

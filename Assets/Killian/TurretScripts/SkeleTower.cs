@@ -1,3 +1,4 @@
+using Code.Scripts.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +38,7 @@ public class SkeleTower : Tower
     private void SummonSkeleton()
     {
         GameObject skeleton = Instantiate(shotPrefab, transform.position, Quaternion.identity, transform);
+        AudioManager.Instance.PlayAudioint(3);
         Skeleton skeletonScript = skeleton.GetComponent<Skeleton>();
         if (skeletonScript != null)
         {
