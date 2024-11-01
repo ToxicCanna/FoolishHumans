@@ -233,6 +233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ManSpiderModel@Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 42f5aaf53d3e01b4b99bc57520932fdf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5cd0cc12a13f2254db30eec4e4156a8b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

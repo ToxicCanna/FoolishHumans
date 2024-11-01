@@ -107,6 +107,7 @@ MonoBehaviour:
   path1: {fileID: 11400000, guid: e9899d968721dd04e834dbcd031ea6a2, type: 2}
   path2: {fileID: 11400000, guid: 3b12d76cb15dc404b975c45e473f64f2, type: 2}
   shotPrefab: {fileID: 1379582864326683640, guid: f6fedceee2d2e664cb74300f30a83074, type: 3}
+  towerType: 0
   bombPrefab: {fileID: 350234364654623216, guid: ec9f3b120a969d7498c4336757b28415, type: 3}
 --- !u!136 &2833395408990753059
 CapsuleCollider:
@@ -236,6 +237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoblinModel@Idle
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 4b68907b538b67844bb3fd929f75cc50, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 694aace1ee0c2ae42a786069d2f35adb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
